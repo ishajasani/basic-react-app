@@ -1,10 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import About from "./component/About/About";
+import Contact from "./component/Contact/Contact";
+import Home from "./component/Home/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./component/Navbar";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <BrowserRouter>
+        <Navbar />
+        <div className="container my-3">
+          <Routes>
+            <Route exact path="/" element={<Home />}></Route>
+            <Route exact path="/about" element={<About />}></Route>
+            <Route exact path="/contact" element={<Contact />}></Route>
+          </Routes>
+        </div>
+      </BrowserRouter>
     </div>
   );
 }
